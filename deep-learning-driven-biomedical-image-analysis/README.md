@@ -6,8 +6,6 @@ Inter-university program:  Universitat Oberta de Catalunya (UOC) & Universitat d
 This project presents an end-to-end deep learning pipeline for the automatic classification of lymphocyte subtypes from peripheral blood smear images, with a special focus on CAR-T reactive lymphocytes, 
 a challenging and clinically relevant cell population emerging during CAR-T therapy.
 
-The work combines convolutional neural networks (CNN), image segmentation, chromatic feature engineering, and hybrid machine learning models to improve classification performance in morphologically similar cell types.
-
 ## Problem
 
 During CAR-T therapy, reactive CAR-T lymphocytes appear in peripheral blood. These cells:
@@ -21,6 +19,12 @@ During CAR-T therapy, reactive CAR-T lymphocytes appear in peripheral blood. The
 Accurate identification of these cells is important for therapy monitoring and outcome assessment, but manual annotation is time-consuming and subjective.
 
 This thesis addresses this challenge through automated image analysis and deep learning.
+
+## Pipeline
+
+![Overview of the full image analysis pipeline](image/Overview.png)
+
+The work combines convolutional neural networks (CNN), image segmentation, chromatic feature engineering, and hybrid machine learning models to improve classification performance in morphologically similar cell types.
 
 ## Dataset
 
@@ -40,7 +44,9 @@ This thesis addresses this challenge through automated image analysis and deep l
 
 ## Data preprocessing:
 - Image normalization (ImageNet standards)
-
+  
+- Background noise reduction with Cell-level cropping
+images cropped by 20% of the original frame
 
 ## Deep Learning Image Classification
 
@@ -55,11 +61,10 @@ Task: Multiclass classification of lymphocyte types
 - Fine-tuning with low learning rate
 
 - Early stopping and validation monitoring
-  
-- Background noise reduction with Cell-level cropping
-images cropped by 20% of the original frame
 
 ### Key outcome:
+
+![Confusion matrix of the CNN classifier](image/CNN_confusion_matrix.png)
 
 Strong performance despite high inter-class similarity
 The CNN achieved a global Matthews Correlation Coefficient (MCC) of 0.9493. 
@@ -74,6 +79,8 @@ Despite this, the model reached a high CAR-T recall of 0.93, showing its ability
 
 ### Finding:
 
+![SAM-based segmentation examples](image/SAM.png)
+
 SAM performed poorly on small, low-contrast cellular structures
 
 ## Chromatic Feature Extraction
@@ -86,22 +93,19 @@ Extraction of color descriptors from color spaces:
 
 - LAB 
 
-### Analysis revealed:
-
-Strong chromatic differences for blasts and normal lymphocytes
-
-Significant overlap for CAR-T and reactive lymphocytes
-
 ## Dimensionality Reduction & Visualization
 
 UMAP applied to chromatic features
 
-Used to:
+### Analysis revealed:
 
-- Explore class separability
+![UMAP of RGB histograms](image/UMAP_RGB.png)
 
-- Detect feature redundancy
+- Strong chromatic differences for blasts and other lymphocytes
 
+![UMAP of chromatic features](image/UMAP_chromatic.png)
+
+-Significant overlap for CAR-T and reactive lymphocytes
 
 ## Hybrid Model (Late Fusion)
 
@@ -115,13 +119,15 @@ Inputs combined:
 
 - Classifier: Support Vector Machine (SVM) with an RBF kernel.
 
-### Result:
+## Results
+
+![UMAP of final model features](image/UMAP_final_features.png)
 
 Improved clustering
 
-Better performance in under-represented and overlapping classes
+![Confusion matrix of the final classifier](image/Final_classifier_confusion_matrix.png)
 
-## Results
+Better performance in under-represented and overlapping classes
 
 Final model performance:
 
