@@ -43,19 +43,28 @@ Key steps include:
 
 ## Atlas-Based Regional Analysis
 
+![Overlay of the anatomical atlas and the lesions](image/atlas_brain.png)
+
 Edema regions were overlaid onto an anatomical brain atlas to associate lesions with specific brain regions, enabling regional quantification and spatial interpretation.
 
 ## Segmentation Visualization
 
+![Axial slices with overlaid edema segmentation](image/edema_mask.png)
+
 Axial MRI slices were visualized with overlaid edema masks to qualitatively assess segmentation accuracy and spatial extent across different brain levels.
 
 ## Geometric Feature Extraction: Longest Axis
+
+![Visualization of the edema with its corresponding longest axis](image/longest_axis.png)
 
 In addition to volumetric measurements, the pipeline computes the longest axis of each edema region, providing a geometric descriptor of lesion extent.
 
 This metric was derived from 3D spatial coordinates of lesion voxels. To ensure computational efficiency, memory-aware sampling strategies were applied for large lesions before computing pairwise distances in physical space.
 
 ## Quantitative Results
+
+![Analysis of edema volume distribution and affected regions](image/Result_edemas.png)
+
 
 The extracted metrics enable statistical analysis of edema burden and spatial distribution across patients and brain regions. Volume distributions and region-specific involvement can be directly visualized and compared.
 
