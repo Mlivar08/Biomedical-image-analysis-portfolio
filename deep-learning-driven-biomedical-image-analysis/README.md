@@ -68,7 +68,8 @@ Task: Multiclass classification of lymphocyte types
 
 Strong performance despite high inter-class similarity
 The CNN achieved a global Matthews Correlation Coefficient (MCC) of 0.9493. 
-The model performed exceptionally well on blast and normal lymphocytes, while CAR-T cells—being morphologically similar to reactive lymphocytes—represented the most challenging class.
+The model performed exceptionally well on blast and normal lymphocytes, while CAR-T cells, being morphologically similar to reactive lymphocytes, represented the most challenging class.
+
 Despite this, the model reached a high CAR-T recall of 0.93, showing its ability to reliably detect clinically relevant CAR-T cells, with most errors driven by overlap with reactive classical lymphocytes.
 
 ## Image Segmentation
@@ -81,7 +82,7 @@ Despite this, the model reached a high CAR-T recall of 0.93, showing its ability
 
 ![SAM-based segmentation examples](image/SAM.png)
 
-SAM performed poorly on small, low-contrast cellular structures
+- SAM performed poorly on small, low-contrast cellular structures
 
 ## Chromatic Feature Extraction
 
@@ -105,7 +106,7 @@ UMAP applied to chromatic features
 
 ![UMAP of chromatic features](image/UMAP_chromatic.png)
 
--Significant overlap for CAR-T and reactive lymphocytes
+- Significant overlap for CAR-T and reactive lymphocytes
 
 ## Hybrid Model (Late Fusion)
 
@@ -123,20 +124,19 @@ Inputs combined:
 
 ![UMAP of final model features](image/UMAP_final_features.png)
 
-Improved clustering
+- Improved clustering
 
 ![Confusion matrix of the final classifier](image/Final_classifier_confusion_matrix.png)
 
-Better performance in under-represented and overlapping classes
+- Better performance in under-represented and overlapping classes
 
-Final model performance:
+### Final model performance:
 
 - Overall accuracy: 96%
 
 - CAR-T recall: 93%
 
 - Matthews Correlation Coefficient (MCC): 0.96
-
 
 The final UMAP shows more compact and well-separated clusters,
 demonstrating that combining CNN outputs with chromatic features improves class grouping 
