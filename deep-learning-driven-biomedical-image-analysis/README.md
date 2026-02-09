@@ -55,7 +55,7 @@ Task: Multiclass classification of lymphocyte types
 - Fine-tuning with low learning rate
 
 - Early stopping and validation monitoring
-- 
+  
 - Background noise reduction with Cell-level cropping
 images cropped by 20% of the original frame
 
@@ -110,7 +110,7 @@ Inputs combined:
 - CNN output probabilities
 
 - UMAP-reduced chromatic descriptors
-- 
+  
 - Improve interpretability of learned patterns
 
 - Classifier: Support Vector Machine (SVM) with an RBF kernel.
@@ -141,7 +141,7 @@ The hybrid CNN + chromatic feature approach outperformed the CNN alone
 Demonstrated the value of combining deep representations with engineered features
 
 -------------------------
-Confidenciality
+# Confidenciality
 
 This project was developed as part of my Master’s Thesis under the academic supervision of Kevin Ivan Barrera Llanga, PhD. 
 Computational resources and scientific support were provided by the CoDAlab and CellsiLab research groups at the Universitat Politècnica de Catalunya. 
