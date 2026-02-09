@@ -1,7 +1,7 @@
 # Quantitative MRI-Based Analysis of Brain Edema Using Segmentation Masks
 
 This project presents a quantitative image analysis pipeline for the study of brain edema from 3D magnetic resonance imaging (MRI) data. 
-Using expert-curated segmentation masks, the workflow extracts edema volume, anatomical distribution, and geometric lesion descriptors: longest axis.
+Using expert-curated segmentation masks, the workflow extracts edema volume, anatomical distribution, and geometric lesion descriptor: longest axis.
 
 ## Dataset Description
 
